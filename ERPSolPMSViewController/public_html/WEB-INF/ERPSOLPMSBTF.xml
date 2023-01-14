@@ -18,17 +18,109 @@
     <method-call id="RollbackBeforeActivityPMS">
       <method>#{bindings.Rollback.execute}</method>
       <outcome>
-        <fixed-outcome>Rollback</fixed-outcome>
+        <fixed-outcome>ERP-GOTO-PMS-MAIN</fixed-outcome>
       </outcome>
     </method-call>
     <method-call id="doERPSolPMSSessionGlobals">
       <method>#{pageFlowScope.ERPSolPMSPageFlowBean.doSetERPSolPMSSessionGlobals}</method>
+    </method-call>
+    <method-call id="ExeParaSetupFormsPMS">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-GOTO-PMS-MAIN</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExeParaTransactionFormsPMS">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-GOTO-PMS-MAIN</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExeParaReverseFormsPMS">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExeParaReverseReportsDetailPMS">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="ERPSolPMSMain">
+      <page>/ERPSolPMSMain.jsf</page>
+    </view>
+    <task-flow-return id="ERPSOL-RETURN-FROM-PMS">
+      <outcome>
+        <name>ERPSOL-RETURN-FROM-PMS</name>
+      </outcome>
+    </task-flow-return>
+    <task-flow-return id="ACT-ERP-SOL-LOGOUT">
+      <outcome>
+        <name>ACT-ERP-SOL-LOGOUT</name>
+      </outcome>
+    </task-flow-return>
+    <method-call id="RollbackBeforeLogoutPMS">
+      <method>#{bindings.Rollback.execute}</method>
+      <outcome>
+        <fixed-outcome>RollbackBeforeLogoutAPS</fixed-outcome>
+      </outcome>
     </method-call>
     <control-flow-rule id="__3">
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__4">
         <from-outcome>ACTStartERPSolutionTaskFlow</from-outcome>
         <to-activity-id>RollbackBeforeActivityPMS</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__5">
+      <from-activity-id>RollbackBeforeActivityPMS</from-activity-id>
+      <control-flow-case id="__6">
+        <from-outcome>ERP-GOTO-PMS-MAIN</from-outcome>
+        <to-activity-id>ExeParaSetupFormsPMS</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__7">
+      <from-activity-id>ExeParaSetupFormsPMS</from-activity-id>
+      <control-flow-case id="__8">
+        <from-outcome>ERP-GOTO-PMS-MAIN</from-outcome>
+        <to-activity-id>ExeParaTransactionFormsPMS</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__9">
+      <from-activity-id>ExeParaTransactionFormsPMS</from-activity-id>
+      <control-flow-case id="__10">
+        <from-outcome>ERP-GOTO-PMS-MAIN</from-outcome>
+        <to-activity-id>ExeParaReverseFormsPMS</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__11">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__12">
+        <from-outcome>ERP-ACT-EXIT-FORM-PMS</from-outcome>
+        <to-activity-id>ERPSolPMSMain</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__13">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__14">
+        <from-outcome>ACT-ERPSOL-RETURN-FROM-PMS</from-outcome>
+        <to-activity-id>ERPSOL-RETURN-FROM-PMS</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__15">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__16">
+        <from-outcome>RollbackBeforeLogoutAPS</from-outcome>
+        <to-activity-id>RollbackBeforeLogoutPMS</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__17">
+      <from-activity-id>RollbackBeforeLogoutPMS</from-activity-id>
+      <control-flow-case id="__18">
+        <from-outcome>RollbackBeforeLogoutAPS</from-outcome>
+        <to-activity-id>ACT-ERP-SOL-LOGOUT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
   </task-flow-definition>

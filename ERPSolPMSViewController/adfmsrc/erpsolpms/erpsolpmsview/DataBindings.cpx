@@ -5,18 +5,43 @@
     <page path="/ERPSolPMSMain.jsf" usageId="erpsolpms_erpsolpmsview_ERPSolPMSMainPageDef"/>
     <page path="/WEB-INF/ERPSOLPMSBTF.xml#ERPSOLPMSBTF@RollbackBeforeActivityPMS"
           usageId="erpsolpms_erpsolpmsview_ERPSOLPMSBTF_ERPSOLPMSBTF_RollbackPageDef"/>
+    <page path="/WEB-INF/ERPSOLPMSBTF.xml#ERPSOLPMSBTF@ExeParaSetupFormsPMS"
+          usageId="erpsolpms_erpsolpmsview_ERPSOLPMSBTF_ERPSOLPMSBTF_ExecuteWithParamsPageDef"/>
+    <page path="/WEB-INF/ERPSOLPMSBTF.xml#ERPSOLPMSBTF@ExeParaTransactionFormsPMS"
+          usageId="erpsolpms_erpsolpmsview_ERPSOLPMSBTF_ERPSOLPMSBTF_ExecuteWithParamsPageDef1"/>
+    <page path="/WEB-INF/ERPSOLPMSBTF.xml#ERPSOLPMSBTF@ExeParaReverseFormsPMS"
+          usageId="erpsolpms_erpsolpmsview_ERPSOLPMSBTF_ERPSOLPMSBTF_ExecuteWithParamsPageDef11"/>
+    <page path="/WEB-INF/ERPSOLPMSBTF.xml#ERPSOLPMSBTF@ExeParaReverseReportsDetailPMS"
+          usageId="erpsolpms_erpsolpmsview_ERPSOLPMSBTF_ERPSOLPMSBTF_ExecuteWithParamsPageDef111"/>
+    <page path="/WEB-INF/ERPSOLPMSBTF.xml#ERPSOLPMSBTF@RollbackBeforeLogoutPMS"
+          usageId="erpsolpms_erpsolpmsview_ERPSOLPMSBTF_ERPSOLPMSBTF_RollbackPageDef1"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="erpsolpms_erpsolpmsview_ERPSolPMSMainPageDef"
           path="erpsolpms.erpsolpmsview.pageDefs.ERPSolPMSMainPageDef"/>
     <page id="erpsolpms_erpsolpmsview_ERPSOLPMSBTF_ERPSOLPMSBTF_RollbackPageDef"
           path="erpsolpms.erpsolpmsview.pageDefs.ERPSOLPMSBTF_ERPSOLPMSBTF_RollbackPageDef"/>
+    <page id="erpsolpms_erpsolpmsview_ERPSOLPMSBTF_ERPSOLPMSBTF_ExecuteWithParamsPageDef"
+          path="erpsolpms.erpsolpmsview.pageDefs.ERPSOLPMSBTF_ERPSOLPMSBTF_ExecuteWithParamsPageDef"/>
+    <page id="erpsolpms_erpsolpmsview_ERPSOLPMSBTF_ERPSOLPMSBTF_ExecuteWithParamsPageDef1"
+          path="erpsolpms.erpsolpmsview.pageDefs.ERPSOLPMSBTF_ERPSOLPMSBTF_ExecuteWithParamsPageDef1"/>
+    <page id="erpsolpms_erpsolpmsview_ERPSOLPMSBTF_ERPSOLPMSBTF_ExecuteWithParamsPageDef11"
+          path="erpsolpms.erpsolpmsview.pageDefs.ERPSOLPMSBTF_ERPSOLPMSBTF_ExecuteWithParamsPageDef11"/>
+    <page id="erpsolpms_erpsolpmsview_ERPSOLPMSBTF_ERPSOLPMSBTF_ExecuteWithParamsPageDef111"
+          path="erpsolpms.erpsolpmsview.pageDefs.ERPSOLPMSBTF_ERPSOLPMSBTF_ExecuteWithParamsPageDef111"/>
+    <page id="erpsolpms_erpsolpmsview_ERPSOLPMSBTF_ERPSOLPMSBTF_RollbackPageDef1"
+          path="erpsolpms.erpsolpmsview.pageDefs.ERPSOLPMSBTF_ERPSOLPMSBTF_RollbackPageDef1"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="ERPSolPMSAppModuleDataControl" Package="erpsolpms.erpsolpmsmodel.erpsolpmsam"
                      FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
                      SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
                      SupportsSortCollection="true" Configuration="ERPSolPMSAppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+    <BC4JDataControl id="ERPSolTempAppModuleDataControl" Package="erpsoltemp.erpsoltempmodel.erpsoltempam"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="ERPSolTempAppModuleLocal" syncMode="Immediate"
                      xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
   </dataControlUsages>
 </Application>
