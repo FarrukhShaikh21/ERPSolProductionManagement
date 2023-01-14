@@ -43,7 +43,7 @@ public class ERPSolPMSBean {
     RichPopup ERPSolImeiPopup;
 //    RichInputText ERPSolImeiBoxText;
     String ERPSolReportName;
-    public void doSetERPSolAPSSessionGlobals() {
+    public void doSetERPSolPMSSessionGlobals() {
         System.out.println("glob user code"+getERPSolStrUserCode());
         if (getERPSolStrUserCode().length()==0) {
            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Users Defaults are not defined properly. Please Check"));

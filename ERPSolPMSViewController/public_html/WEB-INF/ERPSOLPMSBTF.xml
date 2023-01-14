@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="windows-1252" ?>
 <adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
   <task-flow-definition id="ERPSOLPMSBTF">
+    <default-activity>doERPSolPMSSessionGlobals</default-activity>
     <data-control-scope>
       <shared/>
     </data-control-scope>
@@ -14,5 +15,21 @@
       <managed-bean-class>erpsolpms.erpsolpmsview.erpsolpmsclass.ERPSolPMSBean</managed-bean-class>
       <managed-bean-scope>pageFlow</managed-bean-scope>
     </managed-bean>
+    <method-call id="RollbackBeforeActivityPMS">
+      <method>#{bindings.Rollback.execute}</method>
+      <outcome>
+        <fixed-outcome>Rollback</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="doERPSolPMSSessionGlobals">
+      <method>#{pageFlowScope.ERPSolPMSPageFlowBean.doSetERPSolPMSSessionGlobals}</method>
+    </method-call>
+    <control-flow-rule id="__3">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>ACTStartERPSolutionTaskFlow</from-outcome>
+        <to-activity-id>RollbackBeforeActivityPMS</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
   </task-flow-definition>
 </adfc-config>

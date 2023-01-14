@@ -2,4 +2,53 @@
 <SDM>
    <OverallProperties
       id="OverallProperties1"/>
+   <WildcardControlFlowRule
+      id="WildcardControlFlowRule2">
+      <property
+         name="activityId">*</property>
+      <property
+         name="y">141.19531</property>
+      <property
+         name="x">85.0</property>
+   </WildcardControlFlowRule>
+   <MethodCall
+      id="MethodCall3">
+      <property
+         name="activityId">RollbackBeforeActivityPMS</property>
+      <property
+         name="start">false</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>RollbackBeforeActivityPMS&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">142.09766</property>
+      <property
+         name="x">372.5</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="WildcardControlFlowRule2"
+      to="MethodCall3">
+      <property
+         name="fromOutcome">ACTStartERPSolutionTaskFlow</property>
+      <property
+         name="sdm:polyPoints">R50,124.24467,141.34473,328.25534,141.74707,L50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall5">
+      <property
+         name="activityId">doERPSolPMSSessionGlobals</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>doERPSolPMSSessionGlobals&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">-14.908203</property>
+      <property
+         name="x">180.0</property>
+   </MethodCall>
 </SDM>

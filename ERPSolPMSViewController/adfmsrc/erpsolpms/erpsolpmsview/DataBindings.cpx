@@ -3,9 +3,20 @@
              SeparateXMLFiles="false" Package="erpsolpms.erpsolpmsview" ClientType="Generic">
   <pageMap>
     <page path="/ERPSolPMSMain.jsf" usageId="erpsolpms_erpsolpmsview_ERPSolPMSMainPageDef"/>
+    <page path="/WEB-INF/ERPSOLPMSBTF.xml#ERPSOLPMSBTF@RollbackBeforeActivityPMS"
+          usageId="erpsolpms_erpsolpmsview_ERPSOLPMSBTF_ERPSOLPMSBTF_RollbackPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="erpsolpms_erpsolpmsview_ERPSolPMSMainPageDef"
           path="erpsolpms.erpsolpmsview.pageDefs.ERPSolPMSMainPageDef"/>
+    <page id="erpsolpms_erpsolpmsview_ERPSOLPMSBTF_ERPSOLPMSBTF_RollbackPageDef"
+          path="erpsolpms.erpsolpmsview.pageDefs.ERPSOLPMSBTF_ERPSOLPMSBTF_RollbackPageDef"/>
   </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="ERPSolPMSAppModuleDataControl" Package="erpsolpms.erpsolpmsmodel.erpsolpmsam"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="ERPSolPMSAppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
 </Application>
