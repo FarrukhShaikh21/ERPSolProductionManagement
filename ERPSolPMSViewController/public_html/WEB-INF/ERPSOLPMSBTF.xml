@@ -90,6 +90,12 @@
         <fixed-outcome>RollbackBeforeLogoutAPS</fixed-outcome>
       </outcome>
     </method-call>
+    <method-call id="ExeParaReverseReportsPMS">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-GOTO-PMS-MAIN</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__3">
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__4">
@@ -150,7 +156,7 @@
       <from-activity-id>ExeParaReverseFormsPMS</from-activity-id>
       <control-flow-case id="__24">
         <from-outcome>ERP-GOTO-PMS-MAIN</from-outcome>
-        <to-activity-id>ExeParaReverseReportsDetailPMS</to-activity-id>
+        <to-activity-id>ExeParaReverseReportsPMS</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__25">
@@ -165,6 +171,13 @@
       <control-flow-case id="__28">
         <from-outcome>ERP-GOTO-PMS-MAIN</from-outcome>
         <to-activity-id>RollbackBeforeActivityPMS</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__29">
+      <from-activity-id>ExeParaReverseReportsPMS</from-activity-id>
+      <control-flow-case id="__30">
+        <from-outcome>ERP-GOTO-PMS-MAIN</from-outcome>
+        <to-activity-id>ExeParaReverseReportsDetailPMS</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>
