@@ -4,7 +4,17 @@
     <af:document title="ERPSolPMSMain.jsf" id="d1">
         <af:form id="f1">
             <af:pageTemplate viewId="/ERPSolutionTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
-                <f:facet name="erptempmain"/>
+                <f:facet name="erptempmain">
+                <af:panelBox text="Production Management System" id="pb1" showDisclosure="false">
+                        <f:facet name="toolbar">
+                            <af:toolbar id="t1">
+                                <af:link id="l1" action="ACT-ERPSOL-RETURN-FROM-PMS"
+                                         icon="#{resource['images:imgHome.png']}"/>
+                            </af:toolbar>
+                        </f:facet>
+                        <af:image source="#{resource['images:imgProduction.png']}" id="i1"/>
+                    </af:panelBox>
+                </f:facet>
                 <f:facet name="erptempleft"/>
             </af:pageTemplate>
         </af:form>
